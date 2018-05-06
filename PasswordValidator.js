@@ -61,7 +61,7 @@ function addPasswordField(e) {
     //Progress bar element
     var progressBar = document.createElement("div");
     $(progressBar).addClass("progress-bar");
-    $(progressBar).addClass("bg-success");
+    $(progressBar).addClass("bg-info");
     progressBar.id = "progressBar" + num;
     progressBar.setAttribute("role", "progressbar");
     progressBar.setAttribute("aria-valuenow", "100");
