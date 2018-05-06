@@ -1,3 +1,18 @@
+/**
+ * Password Validator
+ * Author: Brian Nippert
+ * Date: 5/5/2018
+ * Version 1.2
+ *
+ * ChangeLog:
+ * Version 1.0
+ *      Initial release
+ * Version 1.1
+ *       Cleaned up code and added comments
+ * Version 1.2
+ *        Added version comments
+ */
+
 //Count variable ued for progress bar
  var count = 0;
 
