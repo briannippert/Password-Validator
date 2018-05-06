@@ -39,6 +39,7 @@ function addPasswordField(e) {
     e.setAttribute("data-html", "true");
     e.setAttribute("title", "Password Requirements");
     e.setAttribute("onfocus", "onFocus(this)");
+    e.setAttribute("onblur","onBlur(this)");
     e.setAttribute("onkeyup", "checkPassword(this)");
 
     //Create progress bar container
@@ -72,7 +73,7 @@ function addVerifyField(e) {
     e.setAttribute("data-trigger", "focus");
     e.setAttribute("data-content","Passwords Do Not Match!");
     e.setAttribute("data-html", "true");
-    e.setAttribute("onfocus", "onFocus(this)");
+    e.setAttribute("onfocus", "checkVerify(this)");
     e.setAttribute("onkeyup", "checkVerify(this)");
 
 }
@@ -112,13 +113,15 @@ function checkPassword(e) {
     var prohibited = checkProhibitedCharacter(password);
     if (length.length + upper.length + digit.length + special.length + prohibited.length == 0) {
         $(e).popover('hide');
-        $(e).addClass("has-success");
+        $(e).addClass("is-invalid");
+        return true;
     } else {
         $(e).popover('show');
-        $(e).removeClass("has-success");
+        $(e).removeClass("is-valid");
         setProgressBar(count, e);
         var popover = $(e).attr("data-content", length + upper + digit + special + prohibited + ' <br/>' + document.getElementById("progress" + num).outerHTML).data('bs.popover');
         popover.setContent();
+        return false;
     }
 
 }
@@ -236,3 +239,15 @@ function onFocus(e) {
     checkPassword(e);
 }
 
+function onBlur(e)
+{
+    var id = e.id;
+    var num = id.match(/\d/g);
+    num = num.join("");
+
+    if(checkPassword(e) == false)
+    {
+
+    }
+
+}
