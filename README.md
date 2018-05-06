@@ -8,10 +8,8 @@
 <li>Add the class "validate" to the password input.</li>
 </ol>
 <b>Change Log:</b>	
-<p>Version 1.0<br/>
-	Initial release<br/>
-Version 1.1<br/>
-	Cleaned up code and added comments<br/>
-Version 1.2<br/>
-	Added version comments<br/>
+<p>
+Version 1.0- Initial release<br/>
+Version 1.1 - Cleaned up code and added comments<br/>
+Version 1.2 - Added version comments<br/>
 </p>
