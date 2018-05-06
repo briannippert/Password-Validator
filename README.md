@@ -1,4 +1,4 @@
-<h1># Password-Validator</h1>
+<h1>Password-Validator</h1>
 <h2>JavaScript Library for password field validation</h2>
 
 <b>Usage</b>
