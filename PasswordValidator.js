@@ -67,12 +67,30 @@ function addPasswordField(e) {
 
 //TODO: Add validation to check the repeat password field
 function addVerifyField(e) {
+    e.setAttribute("data-placement", "right");
+    e.setAttribute("data-toggle", "popover");
+    e.setAttribute("data-trigger", "focus");
+    e.setAttribute("data-content","Passwords Do Not Match!");
+    e.setAttribute("data-html", "true");
+    e.setAttribute("onfocus", "onFocus(this)");
     e.setAttribute("onkeyup", "checkVerify(this)");
 
 }
 
 //TODO: Check to see if the 2 passwords are the same
 function checkVerify(e) {
+    var id = e.id;
+    var num = id.match(/\d/g);
+    num = num.join("");
+    if (e.value == document.getElementById("password" + num).value) {
+        $(e).popover('hide');
+        $(e).addClass("has-success");
+    } else {
+        $(e).popover('show');
+        $(e).removeClass("has-success");
+        var popover = $(e).attr("data-content", 'Passwords Do Not Match!');
+        popover.setContent();
+    }
 
 }
 
