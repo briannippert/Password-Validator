@@ -2,19 +2,11 @@
  * Password Validator
  * Author: Brian Nippert
  * Date: 5/5/2018
- * Version 1.2
- *
- * ChangeLog:
- * Version 1.0
- *      Initial release
- * Version 1.1
- *       Cleaned up code and added comments
- * Version 1.2
- *        Added version comments
+ * Version 1.3
  */
 
 //Count variable ued for progress bar
- var count = 0;
+var count = 0;
 
 //Loops through all forms on the page and ads popover to all password fields with the class validate.
 $(document).ready(function () {
@@ -47,7 +39,6 @@ function addPasswordField(e) {
     e.setAttribute("data-html", "true");
     e.setAttribute("title", "Password Requirements");
     e.setAttribute("onfocus", "onFocus(this)");
-    e.setAttribute("onblur", "onBlur(this)");
     e.setAttribute("onkeyup", "checkPassword(this)");
 
     //Create progress bar container
@@ -102,13 +93,16 @@ function checkPassword(e) {
     var special = checkSpecialCharacters(password);
     var prohibited = checkProhibitedCharacter(password);
     if (length.length + upper.length + digit.length + special.length + prohibited.length == 0) {
-        $(e).popover('hide')
+        $(e).popover('hide');
+        $(e).addClass("has-success");
     } else {
-        $(e).popover('show')
+        $(e).popover('show');
+        $(e).removeClass("has-success");
+        setProgressBar(count, e);
+        var popover = $(e).attr("data-content", length + upper + digit + special + prohibited + ' <br/>' + document.getElementById("progress" + num).outerHTML).data('bs.popover');
+        popover.setContent();
     }
-    setProgressBar(count, e);
-    var popover = $(e).attr("data-content", length + upper + digit + special + prohibited + ' <br/>' + document.getElementById("progress" + num).outerHTML).data('bs.popover');
-    popover.setContent();
+
 }
 
 /**
