@@ -1,5 +1,7 @@
-var count = 0;
+//Count variable ued for progress bar
+ var count = 0;
 
+//Loops through all forms on the page and ads popover to all password fields with the class validate.
 $(document).ready(function () {
     $('[data-toggle="popover"]').popover();
     for (var i = 0; i < document.forms.length; i++) {
@@ -18,20 +20,22 @@ $(document).ready(function () {
 });
 
 /**
- * Adds Status Bar and popover to element e.
+ * Ads popover to element e.
+ * Popover contains status bar
  * @param e
  */
 function addPasswordField(e) {
+    //Set Popover Attributes
     e.setAttribute("data-placement", "right");
     e.setAttribute("data-toggle", "popover");
     e.setAttribute("data-trigger", "focus");
     e.setAttribute("data-html", "true");
     e.setAttribute("title", "Password Requirements");
-
     e.setAttribute("onfocus", "onFocus(this)");
     e.setAttribute("onblur", "onBlur(this)");
     e.setAttribute("onkeyup", "checkPassword(this)");
 
+    //Create progress bar container
     var progressBardiv = document.createElement("div");
     var id = e.id;
     var num = id.match(/\d/g);
@@ -39,6 +43,7 @@ function addPasswordField(e) {
     progressBardiv.id = "progress" + num;
     $(progressBardiv).addClass("progress");
 
+    //Progress bar element
     var progressBar = document.createElement("div");
     $(progressBar).addClass("progress-bar");
     $(progressBar).addClass("bg-success");
@@ -49,21 +54,27 @@ function addPasswordField(e) {
     progressBar.setAttribute("aria-valuemax", "100");
     progressBar.style.width = "0%";
     progressBardiv.appendChild(progressBar);
+
+    //Add popover data including the progress bar
     e.setAttribute("data-content", '&bull; Between 10-12 Characters <br/>&bull; An upper Case Letter<br/> &bull; A Number<br/> &bull; At Least 1 of the Following (_,-,#,%,*,+)<br/> &bull; None of the Following ($,&,=,!,@) <br/>' + progressBardiv.outerHTML);
-
-  //  document.getElementById(e.id).parentElement.appendChild(progressBardiv);
-
 }
 
+//TODO: Add validation to check the repeat password field
 function addVerifyField(e) {
     e.setAttribute("onkeyup", "checkVerify(this)");
 
 }
 
+//TODO: Check to see if the 2 passwords are the same
 function checkVerify(e) {
 
 }
 
+/**
+ * Checks to see if all of the requirements ar met.
+ * Updates progress bar and popover
+ * @param e password field element
+ */
 function checkPassword(e) {
     var id = e.id;
     var num = id.match(/\d/g);
@@ -77,17 +88,19 @@ function checkPassword(e) {
     var prohibited = checkProhibitedCharacter(password);
     if (length.length + upper.length + digit.length + special.length + prohibited.length == 0) {
         $(e).popover('hide')
-    }else
-    {
+    } else {
         $(e).popover('show')
     }
     setProgressBar(count, e);
-    var popover = $(e).attr("data-content", length + upper + digit + special + prohibited +' <br/>' + document.getElementById("progress"+ num).outerHTML).data('bs.popover');
+    var popover = $(e).attr("data-content", length + upper + digit + special + prohibited + ' <br/>' + document.getElementById("progress" + num).outerHTML).data('bs.popover');
     popover.setContent();
-
-    //popover.addClass("data-placement", "right");
 }
 
+/**
+ * Checks to see if the password contains an approved special character
+ * @param string password to test
+ * @returns {string} string to add to the popover
+ */
 function checkSpecialCharacters(string) {
     var specialChar = /[_\-#%*\+]/;
     if (specialChar.test(string) == false) {
@@ -99,6 +112,11 @@ function checkSpecialCharacters(string) {
     }
 }
 
+/**
+ * Checks to see if any prohibited special characters are present in the password.
+ * @param string passwor dot test
+ * @returns {string} string to add to the popover
+ */
 function checkProhibitedCharacter(string) {
     var specialChar = /[$&=!@]/;
     if (specialChar.test(string) == true) {
@@ -110,6 +128,11 @@ function checkProhibitedCharacter(string) {
     }
 }
 
+/**
+ * Checks to see if there is at least 1 digit in the password
+ * @param string password to test
+ * @returns {string} string to add to the popover
+ */
 function checkDigit(string) {
     var hasNumber = /\d/;
     if (hasNumber.test(string) == false) {
@@ -121,6 +144,11 @@ function checkDigit(string) {
     }
 }
 
+/**
+ * Checks to ensure at least 1 character is upper case
+ * @param string password to test
+ * @returns {string} string to add to the popover
+ */
 function checkUpperCase(string) {
     if (string.replace(/[^A-Z]/g, "").length == 0) {
         return addPopoutLine("An upper Case Letter");
@@ -131,6 +159,11 @@ function checkUpperCase(string) {
     }
 }
 
+/**
+ * Checks the length of the password
+ * @param string password to test
+ * @returns {string} string to add to the popover
+ */
 function checkLength(string) {
     if (string.length > 13 || string.length < 10) {
         return addPopoutLine("Between 10-12 Characters");
@@ -142,6 +175,11 @@ function checkLength(string) {
 
 }
 
+/**
+ * sets the progress bar (e) to the percent
+ * @param percent percent to set progress bar to
+ * @param e  password field element
+ */
 function setProgressBar(percent, e) {
     var id = e.id;
     var num = id.match(/\d/g);
@@ -151,20 +189,23 @@ function setProgressBar(percent, e) {
     $("#progressBar" + num).css("width", percent);
 }
 
+/**
+ * returns string that is formatted with a bullet point and <br> at the end for the popover.
+ * @param string popover text
+ * @returns {string} formatted popover string
+ */
 function addPopoutLine(string) {
     return "&bull;" + string + "<br/>";
 }
 
+/**
+ * On focus event that checks the password when the focus is gained.
+ * @param e password element
+ */
 function onFocus(e) {
     var id = e.id;
     var num = id.match(/\d/g);
     num = num.join("");
     checkPassword(e);
-}
-
-function onBlur(e) {
-    var id = e.id;
-    var num = id.match(/\d/g);
-    num = num.join("");
 }
 
