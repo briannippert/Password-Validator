@@ -12,4 +12,5 @@
 Version 1.0- Initial release<br/>
 Version 1.1 - Cleaned up code and added comments<br/>
 Version 1.2 - Added version comments<br/>
+Version 1.3 - Added password matching feature </br>
 </p>
