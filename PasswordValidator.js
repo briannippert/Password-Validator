@@ -8,8 +8,7 @@
 //Count variable ued for progress bar
 var count = 0;
 
-var rules;
-[];
+var rules = [];
 
 //Loops through all forms on the page and ads popover to all password fields with the class validate.
 $(document).ready(function () {
