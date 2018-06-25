@@ -8,6 +8,9 @@
 //Count variable ued for progress bar
 var count = 0;
 
+var rules;
+[];
+
 //Loops through all forms on the page and ads popover to all password fields with the class validate.
 $(document).ready(function () {
     $('[data-toggle="popover"]').popover();
@@ -91,6 +94,13 @@ function checkVerify(e) {
         $(e).removeClass("has-success");
         var popover = $(e).attr("data-content", 'Passwords Do Not Match!');
         popover.setContent();
+    }
+
+}
+
+function checkRules() {
+    for (var i = 0; i < rules.length; i++) {
+        
     }
 
 }
@@ -251,3 +261,12 @@ function onBlur(e)
     }
 
 }
+
+function addRule(name, text, regex) {
+    var rule = {};
+    rule.name = name;
+    rule.text = text;
+    rule.expression = regex;
+
+}
+
