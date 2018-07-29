@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6af62677-0bcb-440e-8bd1-20655d22ffd2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PasswordValidator.js" beforeDir="false" afterPath="$PROJECT_DIR$/PasswordValidator.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,8 +28,8 @@
       <file leaf-file-name="PasswordValidator.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PasswordValidator.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+            <state relative-caret-position="161">
+              <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
               <folding>
                 <element signature="e#0#6#0" expanded="true" />
                 <element signature="e#37#43#1" expanded="true" />
@@ -150,7 +149,7 @@
       <workItem from="1529812581640" duration="51000" />
       <workItem from="1529812919247" duration="445000" />
       <workItem from="1529894822756" duration="1063000" />
-      <workItem from="1529896229109" duration="320000" />
+      <workItem from="1529896229109" duration="662000" />
     </task>
     <task id="LOCAL-00001" summary="Worked on making the rules configurable">
       <created>1529896207810</created>
@@ -159,11 +158,18 @@
       <option name="project" value="LOCAL" />
       <updated>1529896207810</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Worked on making the rules configurable">
+      <created>1529897421419</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1529897421419</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7601000" />
+    <option name="totallyTimeSpent" value="7943000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -413,8 +419,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PasswordValidator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+        <state relative-caret-position="161">
+          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
           <folding>
             <element signature="e#0#6#0" expanded="true" />
             <element signature="e#37#43#1" expanded="true" />
