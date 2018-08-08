@@ -12,6 +12,7 @@ var rules = [];
 
 //Loops through all forms on the page and ads popover to all password fields with the class validate.
 $(document).ready(function () {
+    S;
     $('[data-toggle="popover"]').popover();
     for (var i = 0; i < document.forms.length; i++) {
         for (var j = 0; j < document.forms[i].elements.length; j++) {
@@ -269,3 +270,10 @@ function addRule(name, text, regex) {
 
 }
 
+function getRules() {
+    return rules;
+}
+
+function removeRule(name) {
+
+}
