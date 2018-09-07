@@ -1,0 +1,44 @@
+<html>
+<head>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="../PasswordValidatorv2.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+<br/>
+<br/>
+<br/>
+<br/>
+    <div class="form-group col-sm-2">
+        <form>
+            <label>New Password: </label>
+            <input class="validate" type="password" placeholder="New Password" id="password1">
+        </form>
+    </div>
+<div class="form-group col-sm-2">
+    <form>
+        <label>Confirm Password: </label>
+        <input class="verify" type="password" placeholder="Confirm Password" id="verify1">
+    </form>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        // Configure MinSize -- default is 5
+        PasswordValidator.minSize = 7;
+        // Configure MaxSize -- default is 15
+        PasswordValidator.maxSize = 16;
+
+        // whether you want to validate on prohibited characters    
+        //PasswordValidator.prohibitedConfigured = false;
+
+        PasswordValidator.setup('password1','verify1');
+    });
+</script>
+
+</body>
+
+</html>
